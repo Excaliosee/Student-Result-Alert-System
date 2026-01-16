@@ -1,0 +1,66 @@
+Gathering are as Follow 
+
+# Goal of the Project
+
+Admin uploads student marks/results
+
+Students can log in and view results
+
+Alerts (email/SMS/notification) are sent when results are published
+
+
+PHASE 0: Requirement Analysis
+    Student Registration & Login
+    Admin Login
+    Upload Results (subject-wise)
+    View Results (student dashboard)
+    Result Alerts (Email / SMS)
+    Secure Database Storage
+
+PHASE 1: Technology Stack
+HTML
+CSS (Tailwind / Bootstrap)
+JavaScript
+React.js
+Node.js and Express
+MySQL
+Email → Nodemailer
+SMS → Twilio / Fast2SMS (India)
+
+
+
+SCHEMAS: 
+
+Students Table
+CREATE TABLE students (
+    student_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    roll_no VARCHAR(20) UNIQUE,
+    password VARCHAR(255)
+);
+
+Admin Table
+CREATE TABLE admins (
+    admin_id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50),
+    password VARCHAR(255)
+);
+
+Results Table
+CREATE TABLE results (
+    result_id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT,
+    subject VARCHAR(50),
+    marks INT,
+    FOREIGN KEY (student_id) REFERENCES students(student_id)
+);
+
+Alerts Table (Optional)
+CREATE TABLE alerts (
+    alert_id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT,
+    message VARCHAR(255),
+    sent_at TIMESTAMP
+);
+
