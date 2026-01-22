@@ -1,66 +1,34 @@
-Gathering are as Follow 
+STUDENT RESULT ALERT SYSTEM
 
-# Goal of the Project
+​1) Gathering Required Information
 
-Admin uploads student marks/results
-
-Students can log in and view results
-
-Alerts (email/SMS/notification) are sent when results are published
+​The Student Result Alert System is an automated notification platform designed to bridge the communication gap between educational institutions, students, and parents. Unlike a static database, this system actively monitors the "Result" table and triggers real-time alerts (via Email or SMS) as soon as marks are published. The primary objective is to ensure transparency, provide instant feedback on academic performance, and eliminate the need for students to manually check portals repeatedly.
 
 
-PHASE 0: Requirement Analysis
-    Student Registration & Login
-    Admin Login
-    Upload Results (subject-wise)
-    View Results (student dashboard)
-    Result Alerts (Email / SMS)
-    Secure Database Storage
-
-PHASE 1: Technology Stack
-HTML
-CSS (Tailwind / Bootstrap)
-JavaScript
-React.js
-Node.js and Express
-MySQL
-Email → Nodemailer
-SMS → Twilio / Fast2SMS (India)
+​Stakeholders
 
 
+​ - Administrator: Uploads bulk results, manages the notification gateway (API settings), and monitors delivery logs.
+​ - Faculty: Inputs subject-wise marks and validates results before the alert trigger is activated.
+​ - Students/Parents: Receive automated notifications and view detailed electronic report cards.
+​
+Functional Requirements
 
-SCHEMAS: 
+ - ​Automated Trigger: Detect when new marks are added to the database and initiate an alert.
+​ - Multi-Channel Notification: Send alerts via SMS, Email, or Push Notifications.
+​ - Result Verification: Allow students to log in and view a detailed breakdown of their grades.
+​ - Template Management: Create customizable message templates (e.g., "Dear [Name], your result for [Subject] is now available").
+​ - Fail-safe Logging: Keep a record of which alerts were successfully sent and which failed.
+​
+Non-Functional Requirements
+ - Reliability: High assurance that messages reach the recipient without significant delay.
+​ - Scalability: The ability to send thousands of alerts simultaneously during peak exam seasons.
+​ - Security: Ensuring that sensitive grade information is only sent to registered contact details.
+​ - User Privacy: Encrypting contact numbers and email addresses in the database.
+​
+Identified Entities:
 
-Students Table
-CREATE TABLE students (
-    student_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100),
-    email VARCHAR(100) UNIQUE,
-    roll_no VARCHAR(20) UNIQUE,
-    password VARCHAR(255)
-);
-
-Admin Table
-CREATE TABLE admins (
-    admin_id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(50),
-    password VARCHAR(255)
-);
-
-Results Table
-CREATE TABLE results (
-    result_id INT PRIMARY KEY AUTO_INCREMENT,
-    student_id INT,
-    subject VARCHAR(50),
-    marks INT,
-    FOREIGN KEY (student_id) REFERENCES students(student_id)
-);
-
-Alerts Table (Optional)
-CREATE TABLE alerts (
-    alert_id INT PRIMARY KEY AUTO_INCREMENT,
-    student_id INT,
-    message VARCHAR(255),
-    sent_at TIMESTAMP
-);
-
+​ - Student: (ID, Name, Email, Phone Number)
+​ - Result: (ResultID, StudentID, SubjectCode, MarksObtained, Grade)
+​ - Notification: (AlertID, StudentID, Timestamp, Status [Sent/Pending], Channel)
+​ - Subject: (SubjectCode, SubjectName, FacultyID)
