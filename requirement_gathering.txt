@@ -15,7 +15,7 @@ STUDENT RESULT ALERT SYSTEM
 Functional Requirements
 
  - ​Automated Trigger: Detect when new marks are added to the database and initiate an alert.
-​ - Multi-Channel Notification: Send alerts via SMS, Email, or Push Notifications.
+​ - Multi-Channel Notification: Send alerts Email, or Push Notifications.
 ​ - Result Verification: Allow students to log in and view a detailed breakdown of their grades.
 ​ - Template Management: Create customizable message templates (e.g., "Dear [Name], your result for [Subject] is now available").
 ​ - Fail-safe Logging: Keep a record of which alerts were successfully sent and which failed.

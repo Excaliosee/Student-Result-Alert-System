@@ -33,7 +33,7 @@ CREATE TABLE Result(
 
 CREATE TABLE Notification(
     AlertID INT PRIMARY KEY AUTO_INCREMENT,
-    AlertStatus VARCHAR(20) DEFAULT "Pending",
+    AlertStatus ENUM('Pending', 'Success', 'Failed') DEFAULT 'Pending',
     Channel VARCHAR(20),
     AlertTimeStamp DATETIME DEFAULT CURRENT_TIMESTAMP,
     ResultID INT,
