@@ -1,19 +1,19 @@
 {
-  "name": "backend",
+  "name": "student-result-backend",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "body-parser": "^2.2.2",
-    "cors": "^2.8.6",
-    "express": "^5.2.1",
-    "mysql2": "^3.19.1"
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "mysql2": "^3.9.1",
+    "nodemailer": "^8.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
   }
 }
